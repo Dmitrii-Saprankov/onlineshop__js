@@ -12,16 +12,29 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="header__wrapper container">
-            <button class="cart__button" type="button">Корзина</button>
-        </div>
-    </header>
+        <header class="header">
+            <div class="header__wrapper container">
+                <form action="#" class="search">
+                    <input type="text" class="search__input">
+                    <button class="search__button">Искать</button>
+                </form>
+                <button class="cart__button" type="button">Корзина</button>
+            </div>
+        </header>
 
-    <main>
-        <div class="goods__wrapper container"></div>
-    </main>
+        <main>
+            <h1 class="catalog__heading">Каталог</h1>
+            <div class="goods__wrapper container">
+            </div>
+            <div class="total-price__wrapper container"></div>
 
+            <div class="cart">
+                <h3 class="cart__heading">Корзина</h3>
+                <div class="cart__wrapper container"></div>
+            </div>
+        </main>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script> -->
     <script src="main.js"></script>
 
 </body>
