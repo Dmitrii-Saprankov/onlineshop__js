@@ -12,17 +12,54 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="header__wrapper container">
-            <button class="cart__button" type="button">Корзина</button>
-        </div>
-    </header>
+    <div id="app">
+        <header class="header">
+            <div class="header__wrapper container">
+                <form action="#" class="search">
+                    <!-- <input type="text" class="search__input" placeholder="Поиск" v-on:keydown.enter="filterGoods()" v-model="searchLine"> -->
+                    <!-- <input type="submit" value="Искать" class="search__button" v-on:click="filterGoods()"> -->
+                    <search v-model="searchLine"></search>
+                    <button class="search__button" v-on:click="filterGoods()">Искать</button>
+                </form>
+                <button class="cart__button" type="button">Корзина</button>
+            </div>
+        </header>
 
-    <main>
-        <div class="goods__wrapper container"></div>
-    </main>
+        <main>
+            <h1 class="catalog__heading">Каталог</h1>
+            <goods-list :goods="filteredGoods"></goods-list>
+            <!-- <h1 class="catalog__heading">Каталог</h1>
+            <div class="goods__wrapper container">
+                <div class="goods__item" v-for="good in filteredGoods">
+                    <h3>{{ good.product_name }}</h3>
+                    <p>{{ good.price }}</p>
+                    <img :src="imgGoods" alt="">
+                    <button>Добавить в корзину</button>
+                </div>
+            </div> -->
 
-    <script src="main.js"></script>
+            <div class="nogoods container" v-if="filteredGoods.length == 0">
+                <h3 class="nogoods__heading">По вашему запросу ничего не найдено</h3>
+            </div>
+
+            <h3 class="cart__heading">Корзина</h3>
+            <cart-list :goods="cartGoods"></cart-list>
+
+            <!-- <div class="cart__wrapper" v-bind:class="{ active: isVisibleCart }">
+            <h3 class="cart__heading">Корзина</h3>
+                <div class="cart__item" v-for="good in cartGoods">
+                        <h3>{{good.product_name}}</h3>
+                        <p>{{good.price}}</p>
+                        <img :src="imgGoods" alt="">
+                        <button>Удалить</button>
+                    </div>
+                </div>
+            </div> -->
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="shop_copy.js"></script>
 
 </body>
 
